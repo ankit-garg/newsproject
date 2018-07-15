@@ -1,41 +1,56 @@
 # newsproject
 
+The server was deployed on ec2 t2.micro instance with elasticsearch,redis and web server running.
 
-sample Request : http://52.66.184.42/?country=in&category=sports&keyword=tennis
+Benchmarking
 
-sample response
-
-{"code":200,"response":"3 Results found","data":{"Country":"in","Filter keyword":"tennis","Category":"sports","res":[{"News Title":"WATCH: Neymar Challenge reaches Wimbledon in legends doubles match","Description":"Neymar's \"theatrics\" during the World Cup Round of 16 match against Mexico were remembered during a ","Source News URL":"https:\/\/indianexpress.com\/article\/sports\/tennis\/watch-neymar-rolling-fall-video-wimbledon-2018-5259036\/"},{"News Title":"Angelique Kerber Beats Serena Williams To Lift Maiden Wimbledon Title","Description":"Angelique Kerber became the first German woman to win Wimbledon for 22 years.","Source News URL":"https:\/\/sports.ndtv.com\/tennis\/wimbledon-2018-angelique-kerber-beats-serena-williams-to-lift-maiden-title-1883367"},{"News Title":"Novak Djokovic Downs Rafael Nadal In Epic Battle To Reach Wimbledon Final","Description":"Novak Djokovic reached his fifth Wimbledon final with a 6-4, 3-6, 7-6 (11\/9), 3-6, 10-8 victory over","Source News URL":"https:\/\/sports.ndtv.com\/tennis\/wimbledon-2018-novak-djokovic-downs-rafael-nadal-in-epic-battle-to-reach-final-1883346"}]}}
-
-
-
-sample request: http://52.66.184.42/?country=in&category=sports&keyword=ten
-
-sample response
-
-{"code":200,"response":"4 Results found","data":{"Country":"in","Filter keyword":"ten","Category":"sports","res":[{"News Title":"Novak Djokovic Downs Rafael Nadal In Epic Battle To Reach Wimbledon Final","Description":"Novak Djokovic reached his fifth Wimbledon final with a 6-4, 3-6, 7-6 (11\/9), 3-6, 10-8 victory over","Source News URL":"https:\/\/sports.ndtv.com\/tennis\/wimbledon-2018-novak-djokovic-downs-rafael-nadal-in-epic-battle-to-reach-final-1883346"},{"News Title":"Angelique Kerber Beats Serena Williams To Lift Maiden Wimbledon Title","Description":"Angelique Kerber became the first German woman to win Wimbledon for 22 years.","Source News URL":"https:\/\/sports.ndtv.com\/tennis\/wimbledon-2018-angelique-kerber-beats-serena-williams-to-lift-maiden-title-1883367"},{"News Title":"WATCH: Neymar Challenge reaches Wimbledon in legends doubles match","Description":"Neymar's \"theatrics\" during the World Cup Round of 16 match against Mexico were remembered during a ","Source News URL":"https:\/\/indianexpress.com\/article\/sports\/tennis\/watch-neymar-rolling-fall-video-wimbledon-2018-5259036\/"},{"News Title":"Thailand Open 2018: India's PV Sindhu edges past Gregoria Tunjung to set up title clash against Nozomi Okuhara","Description":"The second-seeded Sindhu continued her unbeaten run in the Thai capital with a 23-21, 16-21, 21-9 wi","Source News URL":"https:\/\/www.firstpost.com\/sports\/thailand-open-2018-indias-pv-sindhu-edges-past-gregoria-tunjung-to-set-up-title-clash-against-nozomi-okuhara-4741521.html"}]}}
-
-
-
-sample request : http://52.66.184.42/?country=in&category=sports&keyword=crickit
-
-sample response
-
-{"code":200,"response":"1 suggestions found","data":{"Country":"in","Filter keyword":"crickit","Category":"sports","Did You Mean This":["cricket"]}}
+Benchmarking 52.66.184.42 (be patient)
+Completed 1000 requests
+Completed 2000 requests
+Completed 3000 requests
+Completed 4000 requests
+Completed 5000 requests
+Completed 6000 requests
+Completed 7000 requests
+Completed 8000 requests
+Completed 9000 requests
+Completed 10000 requests
+Finished 10000 requests
 
 
+Server Software:        swoole-http-server
+Server Hostname:        52.66.184.42
+Server Port:            80
 
-sample request: http://52.66.184.42/?country=in&category=sports&keyword=sajkbd
+Document Path:          /?country=in&category=sports&keyword=tennis 
+Document Length:        1143 bytes
 
-sample response
+Concurrency Level:      1000
+Time taken for tests:   21.695 seconds
+Complete requests:      10000
+Failed requests:        0
+Total transferred:      13080000 bytes
+HTML transferred:       11430000 bytes
+Requests per second:    460.93 [#/sec] (mean)
+Time per request:       2169.507 [ms] (mean)
+Time per request:       2.170 [ms] (mean, across all concurrent requests)
+Transfer rate:          588.77 [Kbytes/sec] received
 
-{"code":404,"response":"OOPS!! We don't found anything","data":{"Country":"in","Filter keyword":"sajkbd","Category":"sports"}}
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    3   8.9      0      48
+Processing:    49 2067 372.1   2159    2300
+Waiting:       49 2067 372.1   2159    2300
+Total:         60 2070 367.7   2159    2309
 
-
-
-sample request: http://52.66.184.42/?country=in&category=sports
-
-sample response
-
-{"code":403,"response":"keyword missing"}
+Percentage of the requests served within a certain time (ms)
+  50%   2159
+  66%   2181
+  75%   2207
+  80%   2237
+  90%   2275
+  95%   2283
+  98%   2291
+  99%   2294
+ 100%   2309 (longest request)
 
